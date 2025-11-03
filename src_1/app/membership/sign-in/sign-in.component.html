@@ -1,0 +1,28 @@
+<div >
+  <h1>Login</h1>
+
+   <div >   
+       <form >
+        <table>
+              <tr>
+                <td><label>Email:</label></td>
+                <td> 
+                  <input type="email" name="userEmail" [(ngmodel)] = "user email"
+                         required  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" 
+                         #userEmail = "ngModel"/>
+                         <small [hidden] = "userEmail.Valid || (userEmail.pristine && !loginForm.submitted)">
+                          Email is required
+                         </small>
+              </tr>
+              <tr>
+                <td><label>Password:</label></td>
+                <input type="password" name="userPassword" required />
+              
+              </tr>   
+              <tr>
+                  <td><button type="submit" > Submit</button> </td>
+              </tr>
+        </table>
+    </form>
+    </div>
+</div>
