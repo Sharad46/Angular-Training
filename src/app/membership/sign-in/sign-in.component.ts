@@ -24,8 +24,8 @@ export class SignInComponent {
  onLogin() {
     
     const validUser = {
-      email: 'admin',
-      password: '12345'
+      email: 'sharad',
+      password: 'sharad123'
     };
 
     if (this.email === validUser.email && this.password === validUser.password) {
