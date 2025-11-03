@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
 export class Credential  {
   constructor(public  email:string,public  password:string){  }
 }
@@ -16,17 +16,27 @@ export class Credential  {
 })
 export class SignInComponent {
 
-  isValidUser:boolean=false;
-  user: Credential=new Credential("ravi.tambade@transflower.in","seed");
+  email = '';
+  password = '';
+  errorMessage = '';
  
-  //Constructor 
-  constructor(private svc:AuthService) {    }  //DI
+  constructor(private router: Router) {}
+ onLogin() {
+    
+    const validUser = {
+      email: 'admin',
+      password: '12345'
+    };
 
- 
-
-  onSubmit(form: any): void {
-   this.isValidUser=this.svc.validate(form.userEmail,form.userPassword);
-   if(this.isValidUser){ console.log("Valid User !"); }
-   else{ console.log("Invalid User !"); }   
+    if (this.email === validUser.email && this.password === validUser.password) {
+      this.errorMessage = '';
+      alert('Login successful!');
+    } else {
+      this.errorMessage = 'Invalid email or password';
+    }
   }
+ navigateToRegister()
+ {
+  alert('navigateToRegister!');
+ }
 }

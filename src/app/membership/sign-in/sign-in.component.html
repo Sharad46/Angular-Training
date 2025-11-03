@@ -1,33 +1,18 @@
-<div >
-  <h1>Login</h1>
-   <p *ngIf="isValidUser">Valid User</p> 
-   
-   <!-- Template Form-->
-
-   <div >   
-       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
-        <table>
-              <tr>
-                <td><label>Email:</label></td>
-                <td> 
-                  <input type="email" name="userEmail" [(ngModel)]="user.email" 
-                         required  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
-                         #userEmail="ngModel"/>
-                  <small [hidden]="userEmail.valid || (userEmail.pristine && !loginForm.submitted)">
-                    Email is Required
-                  </small>
-              </tr>
-              <tr>
-                <td><label>Password:</label></td>
-                <input type="password" name="userPassword" [(ngModel)]="user.password" required  #userPassword="ngModel"/>
-                <small [hidden]="userPassword.valid || (userPassword.pristine && !loginForm.submitted)">
-                    Password is Required
-                </small>
-              </tr>   
-              <tr>
-                  <td><button type="submit" [disabled] = "!loginForm.form.valid"> Submit</button> </td>
-              </tr>
-        </table>
-    </form>
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+    <div>
+      <label>Email</label>
+      <input type="text" name="email" [(ngModel)]="email" required placeholder="Enter email" />
     </div>
+
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" required placeholder="Enter password" />
+    </div>
+
+    <button type="submit">Login</button>
+    <button type="button" (click)="navigateToRegister()">Register</button>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
 </div>
