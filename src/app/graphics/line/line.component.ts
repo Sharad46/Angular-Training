@@ -1,6 +1,7 @@
 import { Component, OnInit,
      Input, ElementRef, 
-     Renderer2 ,ViewChild} from '@angular/core';
+     Renderer2 ,ViewChild,
+     HostListener} from '@angular/core';
 
 @Component({
   selector: 'line',
@@ -8,16 +9,8 @@ import { Component, OnInit,
   styleUrls: ['./line.component.css']
 })
 export class LineComponent  {
-
-  ngOnInit() {  }
  
-
-  @ViewChild('canvas')
-  canvasRef!: ElementRef;
- 
-
-  private canvas: any;
-
+  
   @Input('size')  size!: number;
   @Input('color') color!: string;
   @Input('x1') x1!: number;
@@ -25,9 +18,15 @@ export class LineComponent  {
   @Input('x2') x2!: number;
   @Input('y2') y2!: number;
 
+  @ViewChild('canvas')
+  canvasRef!: ElementRef;
+ 
+  private canvas: any;
+
   constructor(private el: ElementRef, private renderer: Renderer2) {    }
 
   ngAfterViewInit() {
+
       this.canvas = this.canvasRef.nativeElement;
       this.canvas.width = this.size;
       this.canvas.height = this.size;

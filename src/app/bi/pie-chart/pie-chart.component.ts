@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pie-chart',
-  standalone:true,
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css']
 })

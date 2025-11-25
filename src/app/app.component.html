@@ -1,9 +1,9 @@
 
 
 
-<!--<h2>Transflower EStore</h2>-->
+<h2>Transflower EStore</h2>
 <hr/>
- <sign-in></sign-in>
+ <!-- <sign-in></sign-in>
 <hr/>
 <a routerLink="home">Home</a> | 
 <a routerLink="services">Services</a> |
@@ -16,21 +16,48 @@
 <hr/>
 <div >
   <router-outlet></router-outlet>
-</div>  
+</div>   -->
+
 
 
 <!-- Using inbuilt Directives such as *ngIf, ngSwith, ng-template-->
 <!-- <app-conditional></app-conditional> --->
 
-
-
-
 <!--- Custom Directive Implementation -->
 <!-- Template Directive as well as Attribute Directive-->
-<!--<div *myIf="true"> This is the output of Custom directive</div>
+<!-- <div *myIf="true"> This is the output of Custom directive</div>
 <p *myIf="false">Welcome to Transflower</p>
 <app-conditional *myIf="false"></app-conditional>
 
 <div [myHidden]="true">
   <p>Attribute directive demo</p>
-</div>-->
+</div> -->
+
+<!-- Graphical Device Interface  -->
+ <gdi></gdi> 
+<!-- 
+<branding-comp  id="indiaBranding"></branding-comp>
+<hr/>
+<branding-comp id="saBranding"></branding-comp>
+<hr/>
+<branding-comp id="usaBranding"></branding-comp> -->
+
+<h1>Transflower Dashboard</h1>
+<app-master></app-master>
+<hr/>
+<hr/>
+<table>
+  <tr>
+    <td><app-barchart></app-barchart></td>
+    <td><app-pie-chart></app-pie-chart></td>
+  </tr>
+  <tr>
+    <td>
+      <app-detail></app-detail>
+    </td>
+    <td>
+      <app-detail></app-detail>
+    </td>
+  </tr>
+</table>
+

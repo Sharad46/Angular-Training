@@ -3,28 +3,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { CounterComponent } from '../counter/counter.component';
-import { CustomModule } from '../../custom/custom.module';
-
  
 @Component({
   selector: 'app-details',
   standalone:true,
-  imports:[CounterComponent, CustomModule],
+  imports:[CounterComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
 export class DetailsComponent {
 
   currentProductId:any;
-  @Input () product!: Product;
+  @Input () product: Product|undefined;
 
   constructor(private router:Router,private route: ActivatedRoute, 
               private productService: ProductService) {  }
   
   ngOnInit() { 
     this.currentProductId=this.route.snapshot.paramMap.get("id");
-    this.product=this.productService.getProductById(this.currentProductId);
-    console.log(this.product);
+    this.productService.getProductById(this.currentProductId).subscribe(
+        (theproduct)=>{
+          this.product=theproduct;
+        }
+    );
   };
  
   onUpdate(data:any){

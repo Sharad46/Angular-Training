@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { IfDirective } from './customdirectiveif';
 import { HiddenDirective } from './customdirectivehidden';
 import { UnderlineDirective } from './customdirectiveunderline';
-import { AppProductHighlightDirective } from './app-product-highlight.directive';
-import { AppProductHoverDirective } from './app-product-hover.directive';
 
 @NgModule({
-  declarations: [IfDirective, HiddenDirective, UnderlineDirective, AppProductHighlightDirective, AppProductHoverDirective],
+  declarations: [IfDirective,HiddenDirective,UnderlineDirective],
   imports: [CommonModule],
-  exports: [IfDirective, HiddenDirective, UnderlineDirective, AppProductHighlightDirective, AppProductHoverDirective]
+  exports:[IfDirective,HiddenDirective,UnderlineDirective]
 })
 export class CustomModule { }

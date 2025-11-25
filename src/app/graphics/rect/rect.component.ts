@@ -5,11 +5,13 @@ import { Component, OnInit, Input, ViewChild, ElementRef, Renderer2 } from '@ang
   templateUrl: './rect.component.html',
   styleUrls: ['./rect.component.css']
 })
-export class RectComponent implements OnInit {
-  ngOnInit() { }
+export class RectComponent {
+  
 
   @ViewChild('canvas') canvasRef!:ElementRef;
+
     private canvas: any;
+    
     @Input('size') size: number | undefined;
     @Input('color') color!: string;
     @Input('x1') x1!: number;
